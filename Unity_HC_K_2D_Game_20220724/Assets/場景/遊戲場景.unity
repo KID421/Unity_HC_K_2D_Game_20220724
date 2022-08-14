@@ -7237,6 +7237,49 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1763212410859646463, guid: 590db78465b4f27499ca402e64a4ca0e, type: 3}
   m_PrefabInstance: {fileID: 402027501}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &408690069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 408690071}
+  - component: {fileID: 408690070}
+  m_Layer: 0
+  m_Name: "\u5B78\u7FD2\u65B9\u6CD5"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &408690070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408690069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6f967b1ee4b4c488636c086ea338bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &408690071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408690069}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &409648913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12548,6 +12591,36 @@ MonoBehaviour:
   weight: 3.5
   brand: "\u7279\u65AF\u62C9"
   hasSkyWindow: 1
+  count: 0
+  attack: 10.5
+  hp: 1500
+  weapon: "\u5C0F\u5200"
+  isDead: 0
+  password: 123456789
+  speed: 10
+  goCamera: {fileID: 1805045408}
+  color: {r: 0, g: 0, b: 0, a: 0}
+  colorRed: {r: 1, g: 0, b: 0, a: 1}
+  colorYellow: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  colorCustom1: {r: 0.5, g: 0.5, b: 0, a: 1}
+  colorCustomAlpha: {r: 0, g: 0, b: 1, a: 0.5}
+  v2: {x: 0, y: 0}
+  v2Right: {x: 1, y: 0}
+  v2Up: {x: 0, y: 1}
+  v2Custom: {x: 9, y: 1}
+  v3Custom: {x: 9, y: 10, z: 11}
+  v3Right: {x: 1, y: 0, z: 0}
+  v4Custom: {x: 1, y: 2, z: 3, w: 4}
+  layer:
+    serializedVersion: 2
+    m_Bits: 48
+  lightType: 2
+  lightTypeArea: 3
+  keyA: 0
+  keyJump: 32
+  tra: {fileID: 355717555}
+  spr: {fileID: 1870740996}
+  ani: {fileID: 1870740995}
 --- !u!4 &899507044
 Transform:
   m_ObjectHideFlags: 0
@@ -19647,6 +19720,7 @@ GameObject:
   - component: {fileID: 1870740995}
   - component: {fileID: 1870740998}
   - component: {fileID: 1870740999}
+  - component: {fileID: 1870741000}
   m_Layer: 0
   m_Name: "\u9A0E\u58EB"
   m_TagString: Untagged
@@ -19776,6 +19850,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -1.05}
   m_Size: {x: 0.85, y: 1.9}
   m_Direction: 0
+--- !u!114 &1870741000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870740994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771b5dd0595c266498dd46ea899b82f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3.5
+  parMove: "\u958B\u95DC\u8DD1\u6B65"
 --- !u!1001 &1890155263
 PrefabInstance:
   m_ObjectHideFlags: 0
