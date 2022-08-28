@@ -23,19 +23,27 @@ namespace KID
         /// </summary>
         private void Move()
         {
+            float h = Input.GetAxis("Horizontal");
+            rig.velocity = new Vector2(h * speed, rig.velocity.y);
+            ani.SetBool(parMove, h != 0);
+            
+            if (Mathf.Abs(h) < 0.1f) return;                            // 如果 水平絕對值 小於 0.1 就跳出
 
+            float yAngle = h > 0 ? 0 : 180;
+            transform.eulerAngles = new Vector3(0, yAngle, 0);
         }
         #endregion
 
         #region 事件
         private void Awake()
         {
-            
+            ani = GetComponent<Animator>();
+            rig = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
         {
-            
+            Move();
         }
         #endregion
     }
