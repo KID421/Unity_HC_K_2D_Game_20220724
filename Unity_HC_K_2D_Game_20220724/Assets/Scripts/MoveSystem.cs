@@ -45,6 +45,13 @@ namespace KID
         {
             Move();
         }
+
+        // 關閉事件：元件被關閉執行一次
+        private void OnDisable()
+        {
+            rig.velocity = Vector3.zero;
+            ani.SetBool(parMove, false);
+        }
         #endregion
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 namespace KID
 {
@@ -7,23 +8,81 @@ namespace KID
     /// </summary>
     public class NPCSystem : MonoBehaviour
     {
+        #region 公開資料
+        [SerializeField, Header("開始對話按鍵")]
+        private KeyCode keyStartDialogue = KeyCode.E;
+        [SerializeField, Header("NPC 資料")]
+        private DataNPC dataNPC;
+        #endregion
+
+        #region 要停止的元件
+        private MoveSystem moveSystem;
+        private JumpSystem jumpSystem;
+        #endregion
+
         /// <summary>
         /// 畫布提示
         /// </summary>
         private CanvasGroup groupTip;
 
         private string namePlayer = "騎士";
+        private bool isInArea;
+        /// <summary>
+        /// 是否對話中
+        /// </summary>
+        private bool isDialogue;
+
+        private DialogueSystem dialogueSystem;
 
         private void Awake()
         {
             groupTip = GameObject.Find("畫布提示").GetComponent<CanvasGroup>();
+
+            moveSystem = FindObjectOfType<MoveSystem>();
+            jumpSystem = FindObjectOfType<JumpSystem>();
+            dialogueSystem = FindObjectOfType<DialogueSystem>();
+        }
+
+        // 60 FPS
+        private void Update()
+        {
+            InputAndStartDialogue();
+        }
+
+        /// <summary>
+        /// 輸入按鍵偵測並且開始對話
+        /// </summary>
+        private void InputAndStartDialogue()
+        {
+            if (isDialogue) return;
+
+            if (isInArea && Input.GetKeyDown(keyStartDialogue))
+            {
+                isDialogue = true;
+
+                moveSystem.enabled = false;
+                jumpSystem.enabled = false;
+
+                StopAllCoroutines();
+                StartCoroutine(FadeGroup(false));
+
+                dialogueSystem.StartDialogue();
+            }
+        }
+
+        // 50 FPS
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.name.Contains(namePlayer))
             {
-                groupTip.alpha = 1;
+                isInArea = true;
+                StopAllCoroutines();
+                StartCoroutine(FadeGroup());
             }
         }
 
@@ -31,7 +90,26 @@ namespace KID
         {
             if (collision.name.Contains(namePlayer))
             {
-                groupTip.alpha = 0;
+                isInArea = false;
+                StopAllCoroutines();
+                StartCoroutine(FadeGroup(false));
+            }
+        }
+
+        /// <summary>
+        /// 淡入淡出群組
+        /// </summary>
+        /// <param name="fadeIn">是否淡入</param>
+        private IEnumerator FadeGroup(bool fadeIn = true)
+        {
+            groupTip.alpha = fadeIn ? 0 : 1;
+
+            float increase = fadeIn ? 0.1f : -0.1f;
+
+            for (int i = 0; i < 10; i++)
+            {
+                groupTip.alpha += increase;
+                yield return new WaitForSeconds(0.05f);
             }
         }
     }

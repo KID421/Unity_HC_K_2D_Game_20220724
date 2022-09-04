@@ -12,5 +12,7 @@ namespace KID
         public string nameNPC;
         [Header("對話內容"), TextArea(3, 10)]
         public string[] content;
+        [Header("攝影機名稱")]
+        public string nameCamera;
     }
 }
