@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Cinemachine;
 
 namespace KID
 {
@@ -20,23 +21,30 @@ namespace KID
         private JumpSystem jumpSystem;
         #endregion
 
+        #region 私人資料
         /// <summary>
         /// 畫布提示
         /// </summary>
         private CanvasGroup groupTip;
-
         private string namePlayer = "騎士";
         private bool isInArea;
         /// <summary>
         /// 是否對話中
         /// </summary>
         private bool isDialogue;
-
         private DialogueSystem dialogueSystem;
+        #endregion
+
+        // Ctrl + R R 對有使用到該筆資料名稱重新命名
+        /// <summary>
+        /// NPC CM 攝影機
+        /// </summary>
+        private CinemachineVirtualCamera cvcCM;
 
         private void Awake()
         {
             groupTip = GameObject.Find("畫布提示").GetComponent<CanvasGroup>();
+            cvcCM = GameObject.Find(dataNPC.nameCamera).GetComponent<CinemachineVirtualCamera>();
 
             moveSystem = FindObjectOfType<MoveSystem>();
             jumpSystem = FindObjectOfType<JumpSystem>();
@@ -47,27 +55,6 @@ namespace KID
         private void Update()
         {
             InputAndStartDialogue();
-        }
-
-        /// <summary>
-        /// 輸入按鍵偵測並且開始對話
-        /// </summary>
-        private void InputAndStartDialogue()
-        {
-            if (isDialogue) return;
-
-            if (isInArea && Input.GetKeyDown(keyStartDialogue))
-            {
-                isDialogue = true;
-
-                moveSystem.enabled = false;
-                jumpSystem.enabled = false;
-
-                StopAllCoroutines();
-                StartCoroutine(FadeGroup(false));
-
-                dialogueSystem.StartDialogue();
-            }
         }
 
         // 50 FPS
@@ -111,6 +98,40 @@ namespace KID
                 groupTip.alpha += increase;
                 yield return new WaitForSeconds(0.05f);
             }
+        }
+
+        /// <summary>
+        /// 輸入按鍵偵測並且開始對話
+        /// </summary>
+        private void InputAndStartDialogue()
+        {
+            if (isDialogue) return;
+
+            if (isInArea && Input.GetKeyDown(keyStartDialogue))
+            {
+                isDialogue = true;
+
+                moveSystem.enabled = false;
+                jumpSystem.enabled = false;
+                cvcCM.Priority = 11;
+
+                StopAllCoroutines();
+                StartCoroutine(FadeGroup(false));
+
+                StartCoroutine(dialogueSystem.StartDialogue(dataNPC));
+            }
+        }
+
+        /// <summary>
+        /// 對話結束後處理
+        /// </summary>
+        private void DialogueFinish()
+        {
+            isDialogue = false;
+
+            moveSystem.enabled = true;
+            jumpSystem.enabled = true;
+            cvcCM.Priority = 9;
         }
     }
 }
