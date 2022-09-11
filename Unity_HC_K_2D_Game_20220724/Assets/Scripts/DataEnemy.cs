@@ -14,5 +14,6 @@ namespace KID
         public Color checkGroundColor = new Color(1, 0.5f, 0.3f, 0.3f);
         public Vector3 checkGroundOffset;
         public Vector3 checkGroundSize = Vector3.one;
+        public LayerMask checkGroundLayer;
     }
 }
