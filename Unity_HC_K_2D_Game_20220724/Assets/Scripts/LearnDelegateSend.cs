@@ -24,6 +24,7 @@ namespace KID
             // 3. 使用委派
             // 3-2 參數傳遞
             receive.ReceiveMethod(MethodOne);
+            receive.ReceiveMethodTwo(WeaponAttack);
         }
 
         // 1. 定義方法
@@ -31,6 +32,12 @@ namespace KID
         private void MethodOne()
         {
             print("我是方法一");
+        }
+
+        private void WeaponAttack(int attack)
+        {
+            attack *= 100;
+            print("武器真實傷害：" + attack);
         }
     }
 }

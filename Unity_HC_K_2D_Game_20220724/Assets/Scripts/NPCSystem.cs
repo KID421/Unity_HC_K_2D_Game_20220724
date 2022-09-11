@@ -33,14 +33,14 @@ namespace KID
         /// </summary>
         private bool isDialogue;
         private DialogueSystem dialogueSystem;
-        #endregion
-
         // Ctrl + R R 對有使用到該筆資料名稱重新命名
         /// <summary>
         /// NPC CM 攝影機
         /// </summary>
         private CinemachineVirtualCamera cvcCM;
+        #endregion
 
+        #region 事件
         private void Awake()
         {
             groupTip = GameObject.Find("畫布提示").GetComponent<CanvasGroup>();
@@ -82,7 +82,9 @@ namespace KID
                 StartCoroutine(FadeGroup(false));
             }
         }
+        #endregion
 
+        #region 方法
         /// <summary>
         /// 淡入淡出群組
         /// </summary>
@@ -118,7 +120,7 @@ namespace KID
                 StopAllCoroutines();
                 StartCoroutine(FadeGroup(false));
 
-                StartCoroutine(dialogueSystem.StartDialogue(dataNPC));
+                StartCoroutine(dialogueSystem.StartDialogue(dataNPC, DialogueFinish));
             }
         }
 
@@ -132,6 +134,8 @@ namespace KID
             moveSystem.enabled = true;
             jumpSystem.enabled = true;
             cvcCM.Priority = 9;
+            StartCoroutine(FadeGroup(true));
         }
+        #endregion
     }
 }

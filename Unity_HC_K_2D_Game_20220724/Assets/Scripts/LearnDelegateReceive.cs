@@ -19,12 +19,20 @@ namespace KID
         // 委派語法：修飾詞 委派關鍵字 傳回類型 委派名稱(參數)；
         public delegate void delegateOne();
 
+        public delegate void delegateTwo(int number);
+
         // 3. 使用委派
         // 3-1 參數定義
         public void ReceiveMethod(delegateOne one)
         {
             // 3-3 使用委派
             one();
+        }
+
+        public void ReceiveMethodTwo(delegateTwo two)
+        {
+            int weaponA = 9;
+            two(weaponA);
         }
     }
 }

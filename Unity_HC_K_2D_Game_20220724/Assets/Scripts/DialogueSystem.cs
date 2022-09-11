@@ -9,6 +9,7 @@ namespace KID
     /// </summary>
     public class DialogueSystem : MonoBehaviour
     {
+        #region 資料
         [SerializeField, Header("對話框三角形")]
         private GameObject goTriangle;
         [SerializeField, Header("對話打字效果間隔"), Range(0, 0.5f)]
@@ -33,19 +34,28 @@ namespace KID
         /// </summary>
         private DataNPC dataNPC;
 
+        public delegate void delegateDialogueFinish();
+        private delegateDialogueFinish dialogueFinish;
+        #endregion
+
+        #region 事件
         private void Awake()
         {
             groupDialogue = GameObject.Find("畫布對話").GetComponent<CanvasGroup>();
             textNPC = GameObject.Find("NPC 名稱").GetComponent<TextMeshProUGUI>();
             textContent = GameObject.Find("對話內容").GetComponent<TextMeshProUGUI>();
         }
+        #endregion
 
+        #region 公開方法
         /// <summary>
         /// 開始對話
         /// </summary>
         /// <param name="_dataNPC">NPC 資料</param>
-        public IEnumerator StartDialogue(DataNPC _dataNPC)
+        public IEnumerator StartDialogue(DataNPC _dataNPC, delegateDialogueFinish _finish)
         {
+            dialogueFinish = _finish;
+
             dataNPC = _dataNPC;                             // 將 NPC 傳過來的資料儲存
             textNPC.text = dataNPC.nameNPC;                 // 更新 NPC 名稱
             textContent.text = "";                          // 清空 NPC 對話內容
@@ -54,7 +64,9 @@ namespace KID
 
             StartCoroutine(TypeEffect());
         }
+        #endregion
 
+        #region 私人方法
         /// <summary>
         /// 淡入淡出群組
         /// </summary>
@@ -98,6 +110,9 @@ namespace KID
             }
 
             StartCoroutine(FadeGroup(false));
+            
+            dialogueFinish();
         }
+        #endregion
     }
 }
