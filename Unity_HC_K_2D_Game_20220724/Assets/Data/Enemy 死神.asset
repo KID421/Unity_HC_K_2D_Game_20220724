@@ -12,6 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00ba2ce6452f681469476b21ba5233f2, type: 3}
   m_Name: "Enemy \u6B7B\u795E"
   m_EditorClassIdentifier: 
+  attack: 30
+  attackAreaColor: {r: 0, g: 1, b: 0.2, a: 0.7}
+  attackAreaSize: {x: 3.5, y: 3, z: 1}
+  attackAreaOffset: {x: -2, y: 0, z: 0}
+  attackAreaLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  parAttack: "\u89F8\u767C\u653B\u64CA"
+  attackTime: 2
+  delaySendDamage: 0.35
   speed: 3
   checkGroundColor: {r: 1, g: 0.5, b: 0.3, a: 0.3}
   checkGroundOffset: {x: -1.7, y: -1.3, z: 0}
@@ -26,4 +36,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   attackRangeColor: {r: 0, g: 1, b: 0, a: 0.5}
-  attackRange: 2
+  attackRange: 3.5

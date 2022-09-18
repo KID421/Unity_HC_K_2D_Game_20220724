@@ -9,6 +9,8 @@ namespace KID
     {
         [SerializeField, Header("敵人資料")]
         private DataEnemy dataEnemy;
+        [SerializeField, Header("動畫控制器攻擊動畫名稱")]
+        private string nameAnimationAttack = "死神_攻擊";
 
         private Rigidbody2D rig;
         private Animator ani;
@@ -16,11 +18,13 @@ namespace KID
         private string parWalk = "開關走路";
         private bool lookAttackTarget;
         private Transform traAttackTarget;
+        private EnemyAttack enemyAttack;
 
         private void Awake()
         {
             rig = GetComponent<Rigidbody2D>();
             ani = GetComponent<Animator>();
+            enemyAttack = GetComponent<EnemyAttack>();
         }
 
         private void Update()
@@ -59,6 +63,9 @@ namespace KID
         /// </summary>
         private void Wander()
         {
+            // 如果 目前動畫名稱 為 死神_攻擊 就跳出
+            if (ani.GetCurrentAnimatorStateInfo(0).IsName(nameAnimationAttack)) return;
+
             if (lookAttackTarget) return;
             rig.velocity = -transform.right * new Vector2(dataEnemy.speed, rig.velocity.y);
             ani.SetBool(parWalk, rig.velocity.x != 0);
@@ -105,17 +112,29 @@ namespace KID
                 float dis = Vector3.Distance(transform.position, traAttackTarget.position);
                 // print("距離：" + dis);
 
+                // 如果 目前動畫名稱 為 死神_攻擊 就跳出
+                if (ani.GetCurrentAnimatorStateInfo(0).IsName(nameAnimationAttack)) return;
+
                 if (dis > dataEnemy.attackRange)
                 {
                     rig.velocity = -transform.right * new Vector2(dataEnemy.speed, rig.velocity.y);
                 }
                 else 
                 {
-                    rig.velocity = Vector3.zero;
+                    Attack();
                 }
 
                 ani.SetBool(parWalk, rig.velocity.x != 0);
             }
+        }
+
+        /// <summary>
+        /// 攻擊
+        /// </summary>
+        private void Attack()
+        {
+            rig.velocity = Vector3.zero;
+            enemyAttack.StartAttack();
         }
 
         /// <summary>
