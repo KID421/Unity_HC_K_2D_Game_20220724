@@ -14,7 +14,7 @@ namespace KID
         private Animator ani;
         private bool isAttacking;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             ani = GetComponent<Animator>();
         }
@@ -41,10 +41,11 @@ namespace KID
             print("攻擊到的物件：" + hit);
         }
 
+        // virtual 虛擬：允許子類別使用複寫關鍵字複寫 overrride
         /// <summary>
         /// 開始攻擊
         /// </summary>
-        public void StartAttack()
+        public virtual void StartAttack()
         {
             if (isAttacking) return;
             isAttacking = true;
@@ -61,6 +62,13 @@ namespace KID
             CheckAttackArea();
             yield return new WaitForSeconds(dataAttack.attackTime);
             isAttacking = false;
+            StopAttack();
+        }
+
+        // protected 保護級別：允許子類別存取或複寫
+        protected virtual void StopAttack()
+        {
+
         }
     }
 }

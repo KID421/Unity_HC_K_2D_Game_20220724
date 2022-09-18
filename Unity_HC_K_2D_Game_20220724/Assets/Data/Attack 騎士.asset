@@ -18,7 +18,7 @@ MonoBehaviour:
   attackAreaOffset: {x: 1.5, y: -1, z: 0}
   attackAreaLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   parAttack: "\u89F8\u767C\u653B\u64CA"
-  attackTime: 0.9
-  delaySendDamage: 0.3
+  attackTime: 0.3
+  delaySendDamage: 0.15
