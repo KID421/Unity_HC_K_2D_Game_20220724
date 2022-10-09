@@ -7,12 +7,15 @@ namespace KID
     /// </summary>
     public class EnemyHealth : HealthSystem
     {
+        public delegate void delegateDead();
+        public delegateDead onDead;
+
         protected override void Dead()
         {
             base.Dead();
 
+            onDead();
             DropProp();
-
             gameObject.layer = 9;
         }
 
