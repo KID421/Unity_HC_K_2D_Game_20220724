@@ -1,10 +1,10 @@
-using UnityEngine;
-using System.Collections;   // 1. ¤Ş¥Î¨t²Î¶°¦X
+ï»¿using UnityEngine;
+using System.Collections;   // 1. å¼•ç”¨ç³»çµ±é›†åˆ
 
 namespace KID
 {
     /// <summary>
-    /// ¾Ç²ß¨ó¦Pµ{§Ç
+    /// å­¸ç¿’å”åŒç¨‹åº
     /// </summary>
     public class LearnCoroutine : MonoBehaviour
     {
@@ -15,15 +15,15 @@ namespace KID
 
         private IEnumerator Test()
         {
-            print("²Ä¤@¬qµ{¦¡");
+            print("ç¬¬ä¸€æ®µç¨‹å¼");
 
             yield return new WaitForSeconds(3);
 
-            print("¤T¬í«á°õ¦æ²Ä¤G¬q");
+            print("ä¸‰ç§’å¾ŒåŸ·è¡Œç¬¬äºŒæ®µ");
 
             yield return new WaitForSeconds(4);
 
-            print("¥|¬í«á°õ¦æ²Ä¤T¬q");
+            print("å››ç§’å¾ŒåŸ·è¡Œç¬¬ä¸‰æ®µ");
         }
     }
 }

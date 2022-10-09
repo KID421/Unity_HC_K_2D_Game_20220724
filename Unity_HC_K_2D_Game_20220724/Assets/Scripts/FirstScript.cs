@@ -1,50 +1,50 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// Ãþ§OºK­n
+    /// é¡žåˆ¥æ‘˜è¦
     /// </summary>
     public class FirstScript : MonoBehaviour
     {
         /// <summary>
-        /// ºK­n¡AÂ²µu»¡©ú¡A¤£¬O¥²­n¦ý«Ü­«­n
+        /// æ‘˜è¦ï¼Œç°¡çŸ­èªªæ˜Žï¼Œä¸æ˜¯å¿…è¦ä½†å¾ˆé‡è¦
         /// </summary>
         private void Start()
         {
-            print("«¢Åo¡A¨U¼w~");
+            print("å“ˆå›‰ï¼Œæ²ƒå¾·~");
         }
 
         /// <summary>
-        /// §ó·s¨Æ¥ó
+        /// æ›´æ–°äº‹ä»¶
         /// </summary>
         private void Update()
         {
-            print("§ó·s¨Æ¥ó~");
+            print("æ›´æ–°äº‹ä»¶~");
         }
 
-        // ³æ¦æµù¸Ñ¡G¼Ð°O»¡©ú
+        // å–®è¡Œè¨»è§£ï¼šæ¨™è¨˜èªªæ˜Ž
         // KID 2022.08.14
-        // µ{¦¡°Ï¶ô»¡©ú
+        // ç¨‹å¼å€å¡Šèªªæ˜Ž
 
-        /* ¦h¦æµù¸Ñ
-         * ¦h¦æµù¸Ñ
-         * ¦h¦æµù¸Ñ
-         * ¦h¦æµù¸Ñ
-         * ¦h¦æµù¸Ñ
-         * ¦h¦æµù¸Ñ
+        /* å¤šè¡Œè¨»è§£
+         * å¤šè¡Œè¨»è§£
+         * å¤šè¡Œè¨»è§£
+         * å¤šè¡Œè¨»è§£
+         * å¤šè¡Œè¨»è§£
+         * å¤šè¡Œè¨»è§£
          */
 
-        #region µ{¦¡°Ï¶ô
-        // µ{¦¡°Ï¶ô
-        // µ{¦¡°Ï¶ô
-        // µ{¦¡°Ï¶ô
-        // µ{¦¡°Ï¶ô
-        // µ{¦¡°Ï¶ô
-        // µ{¦¡°Ï¶ô
-        // µ{¦¡°Ï¶ô
-        // µ{¦¡°Ï¶ô
-        // µ{¦¡°Ï¶ô
+        #region ç¨‹å¼å€å¡Š
+        // ç¨‹å¼å€å¡Š
+        // ç¨‹å¼å€å¡Š
+        // ç¨‹å¼å€å¡Š
+        // ç¨‹å¼å€å¡Š
+        // ç¨‹å¼å€å¡Š
+        // ç¨‹å¼å€å¡Š
+        // ç¨‹å¼å€å¡Š
+        // ç¨‹å¼å€å¡Š
+        // ç¨‹å¼å€å¡Š
         #endregion
     }
 }

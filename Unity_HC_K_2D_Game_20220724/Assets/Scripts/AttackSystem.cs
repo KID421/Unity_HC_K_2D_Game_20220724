@@ -1,19 +1,22 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections;
 
 namespace KID
 {
     /// <summary>
-    /// §ğÀ»¨t²Î
+    /// æ”»æ“Šç³»çµ±
     /// </summary>
     public class AttackSystem : MonoBehaviour
     {
-        [SerializeField, Header("§ğÀ»¸ê®Æ")]
+        #region è³‡æ–™
+        [SerializeField, Header("æ”»æ“Šè³‡æ–™")]
         private DataAttack dataAttack;
 
         private Animator ani;
         private bool isAttacking;
+        #endregion
 
+        #region äº‹ä»¶
         protected virtual void Awake()
         {
             ani = GetComponent<Animator>();
@@ -27,9 +30,11 @@ namespace KID
                 transform.TransformDirection(dataAttack.attackAreaOffset),
                 dataAttack.attackAreaSize);
         }
+        #endregion
 
+        #region æ–¹æ³•
         /// <summary>
-        /// ÀË¬d§ğÀ»°Ï°ì
+        /// æª¢æŸ¥æ”»æ“Šå€åŸŸ
         /// </summary>
         private void CheckAttackArea()
         {
@@ -38,12 +43,14 @@ namespace KID
                 transform.TransformDirection(dataAttack.attackAreaOffset),
                 dataAttack.attackAreaSize, 0, dataAttack.attackAreaLayer);
 
-            print("§ğÀ»¨ìªºª«¥ó¡G" + hit);
+            print("æ”»æ“Šåˆ°çš„ç‰©ä»¶ï¼š" + hit);
+
+            hit.GetComponent<HealthSystem>().Hurt(dataAttack.attack);
         }
 
-        // virtual µêÀÀ¡G¤¹³\¤lÃş§O¨Ï¥Î½Æ¼gÃöÁä¦r½Æ¼g overrride
+        // virtual è™›æ“¬ï¼šå…è¨±å­é¡åˆ¥ä½¿ç”¨è¤‡å¯«é—œéµå­—è¤‡å¯« overrride
         /// <summary>
-        /// ¶}©l§ğÀ»
+        /// é–‹å§‹æ”»æ“Š
         /// </summary>
         public virtual void StartAttack()
         {
@@ -54,7 +61,7 @@ namespace KID
         }
 
         /// <summary>
-        /// §ğÀ»¤¤
+        /// æ”»æ“Šä¸­
         /// </summary>
         private IEnumerator Attacking()
         {
@@ -65,11 +72,12 @@ namespace KID
             StopAttack();
         }
 
-        // protected «OÅ@¯Å§O¡G¤¹³\¤lÃş§O¦s¨ú©Î½Æ¼g
+        // protected ä¿è­·ç´šåˆ¥ï¼šå…è¨±å­é¡åˆ¥å­˜å–æˆ–è¤‡å¯«
         protected virtual void StopAttack()
         {
 
         }
+        #endregion
     }
 }
 

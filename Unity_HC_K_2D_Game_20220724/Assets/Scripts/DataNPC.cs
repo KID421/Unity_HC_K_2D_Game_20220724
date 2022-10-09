@@ -1,18 +1,18 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// NPC ¸ê®Æ¡GNPC ¦WºÙ»P¹ï¸Ü¤º®e
+    /// NPC è³‡æ–™ï¼šNPC åç¨±èˆ‡å°è©±å…§å®¹
     /// </summary>
     [CreateAssetMenu(menuName = "KID/NPC Data", fileName = "NPC Data", order = 2)]
     public class DataNPC : ScriptableObject
     {
-        [Header("NPC ¦WºÙ")]
+        [Header("NPC åç¨±")]
         public string nameNPC;
-        [Header("¹ï¸Ü¤º®e"), TextArea(3, 10)]
+        [Header("å°è©±å…§å®¹"), TextArea(3, 10)]
         public string[] content;
-        [Header("Äá¼v¾÷¦WºÙ")]
+        [Header("æ”å½±æ©Ÿåç¨±")]
         public string nameCamera;
     }
 }

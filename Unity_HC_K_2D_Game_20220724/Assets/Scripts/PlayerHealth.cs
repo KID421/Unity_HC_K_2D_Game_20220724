@@ -3,9 +3,9 @@
 namespace KID
 {
     /// <summary>
-    /// 敵人攻擊系統
+    /// 玩家血量系統
     /// </summary>
-    public class EnemyAttack : AttackSystem
+    public class PlayerHealth : HealthSystem
     {
 
     }

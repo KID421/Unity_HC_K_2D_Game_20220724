@@ -1,49 +1,49 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections;
 using Cinemachine;
 
 namespace KID
 {
     /// <summary>
-    /// NPC ¨t²Î
+    /// NPC ç³»çµ±
     /// </summary>
     public class NPCSystem : MonoBehaviour
     {
-        #region ¤½¶}¸ê®Æ
-        [SerializeField, Header("¶}©l¹ï¸Ü«öÁä")]
+        #region å…¬é–‹è³‡æ–™
+        [SerializeField, Header("é–‹å§‹å°è©±æŒ‰éµ")]
         private KeyCode keyStartDialogue = KeyCode.E;
-        [SerializeField, Header("NPC ¸ê®Æ")]
+        [SerializeField, Header("NPC è³‡æ–™")]
         private DataNPC dataNPC;
         #endregion
 
-        #region ­n°±¤îªº¤¸¥ó
+        #region è¦åœæ­¢çš„å…ƒä»¶
         private MoveSystem moveSystem;
         private JumpSystem jumpSystem;
         #endregion
 
-        #region ¨p¤H¸ê®Æ
+        #region ç§äººè³‡æ–™
         /// <summary>
-        /// µe¥¬´£¥Ü
+        /// ç•«å¸ƒæç¤º
         /// </summary>
         private CanvasGroup groupTip;
-        private string namePlayer = "ÃM¤h";
+        private string namePlayer = "é¨å£«";
         private bool isInArea;
         /// <summary>
-        /// ¬O§_¹ï¸Ü¤¤
+        /// æ˜¯å¦å°è©±ä¸­
         /// </summary>
         private bool isDialogue;
         private DialogueSystem dialogueSystem;
-        // Ctrl + R R ¹ï¦³¨Ï¥Î¨ì¸Óµ§¸ê®Æ¦WºÙ­«·s©R¦W
+        // Ctrl + R R å°æœ‰ä½¿ç”¨åˆ°è©²ç­†è³‡æ–™åç¨±é‡æ–°å‘½å
         /// <summary>
-        /// NPC CM Äá¼v¾÷
+        /// NPC CM æ”å½±æ©Ÿ
         /// </summary>
         private CinemachineVirtualCamera cvcCM;
         #endregion
 
-        #region ¨Æ¥ó
+        #region äº‹ä»¶
         private void Awake()
         {
-            groupTip = GameObject.Find("µe¥¬´£¥Ü").GetComponent<CanvasGroup>();
+            groupTip = GameObject.Find("ç•«å¸ƒæç¤º").GetComponent<CanvasGroup>();
             cvcCM = GameObject.Find(dataNPC.nameCamera).GetComponent<CinemachineVirtualCamera>();
 
             moveSystem = FindObjectOfType<MoveSystem>();
@@ -84,11 +84,11 @@ namespace KID
         }
         #endregion
 
-        #region ¤èªk
+        #region æ–¹æ³•
         /// <summary>
-        /// ²H¤J²H¥X¸s²Õ
+        /// æ·¡å…¥æ·¡å‡ºç¾¤çµ„
         /// </summary>
-        /// <param name="fadeIn">¬O§_²H¤J</param>
+        /// <param name="fadeIn">æ˜¯å¦æ·¡å…¥</param>
         private IEnumerator FadeGroup(bool fadeIn = true)
         {
             groupTip.alpha = fadeIn ? 0 : 1;
@@ -103,7 +103,7 @@ namespace KID
         }
 
         /// <summary>
-        /// ¿é¤J«öÁä°»´ú¨Ã¥B¶}©l¹ï¸Ü
+        /// è¼¸å…¥æŒ‰éµåµæ¸¬ä¸¦ä¸”é–‹å§‹å°è©±
         /// </summary>
         private void InputAndStartDialogue()
         {
@@ -125,7 +125,7 @@ namespace KID
         }
 
         /// <summary>
-        /// ¹ï¸Üµ²§ô«á³B²z
+        /// å°è©±çµæŸå¾Œè™•ç†
         /// </summary>
         private void DialogueFinish()
         {

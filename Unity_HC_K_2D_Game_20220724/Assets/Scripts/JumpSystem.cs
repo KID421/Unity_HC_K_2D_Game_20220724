@@ -1,35 +1,35 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ¸õÅD¨t²Î¡G¨¤¦â¸õÅD»P°Êµe§ó·s
+    /// è·³èºç³»çµ±ï¼šè§’è‰²è·³èºèˆ‡å‹•ç•«æ›´æ–°
     /// </summary>
     public class JumpSystem : MonoBehaviour
     {
-        #region ¸ê®Æ
-        [SerializeField, Header("¸õÅD°ª«×"), Range(0, 10000)]
+        #region è³‡æ–™
+        [SerializeField, Header("è·³èºé«˜åº¦"), Range(0, 10000)]
         private float jump = 5;
-        [SerializeField, Header("¸õÅD°Ñ¼Æ¦WºÙ")]
-        private string parJump = "¶}Ãö¸õÅD";
+        [SerializeField, Header("è·³èºåƒæ•¸åç¨±")]
+        private string parJump = "é–‹é—œè·³èº";
 
         private Animator ani;
         private Rigidbody2D rig;
         #endregion
 
-        #region ÀË¬d¦aªO¸ê®Æ
-        [SerializeField, Header("ÀË¬d¦aªOÃC¦â")]
+        #region æª¢æŸ¥åœ°æ¿è³‡æ–™
+        [SerializeField, Header("æª¢æŸ¥åœ°æ¿é¡è‰²")]
         private Color checkGroundColor = new Color(1, 0, 0.2f, 0.3f);
-        [Header("ÀË¬d¦aªO¤Ø¤o»P¦ì²¾")]
+        [Header("æª¢æŸ¥åœ°æ¿å°ºå¯¸èˆ‡ä½ç§»")]
         [SerializeField] private Vector3 checkGroundSize;
         [SerializeField] private Vector3 checkGroundOffset;
-        [SerializeField, Header("ÀË¬d¦aªO¹Ï¼h")]
+        [SerializeField, Header("æª¢æŸ¥åœ°æ¿åœ–å±¤")]
         private LayerMask checkGroundLayer;
 
         private bool isGrounded;
         #endregion
 
-        #region ¨Æ¥ó
+        #region äº‹ä»¶
         private void Awake()
         {
             ani = GetComponent<Animator>();
@@ -51,9 +51,9 @@ namespace KID
         }
         #endregion
 
-        #region ¤èªk
+        #region æ–¹æ³•
         /// <summary>
-        /// ÀË¬d¦aªO
+        /// æª¢æŸ¥åœ°æ¿
         /// </summary>
         private void CheckGround()
         {
@@ -61,17 +61,17 @@ namespace KID
                 transform.position + checkGroundOffset,
                 checkGroundSize, 0, checkGroundLayer);
 
-            // print("<color=red>¸I¨ìªºª«¥ó" + hit + "</color>");
+            // print("<color=red>ç¢°åˆ°çš„ç‰©ä»¶" + hit + "</color>");
 
             isGrounded = hit;
         }
 
         /// <summary>
-        /// ¸õÅD
+        /// è·³èº
         /// </summary>
         private void Jump()
         {
-            // ¦pªG ¦b¦aªO¤W ¨Ã¥B «ö¤UªÅ¥ÕÁä ´N¸õÅD
+            // å¦‚æœ åœ¨åœ°æ¿ä¸Š ä¸¦ä¸” æŒ‰ä¸‹ç©ºç™½éµ å°±è·³èº
             if (isGrounded && Input.GetKeyDown(KeyCode.Space))
             {
                 rig.AddForce(new Vector2(0, jump));

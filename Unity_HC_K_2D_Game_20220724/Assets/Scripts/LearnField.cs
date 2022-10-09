@@ -1,71 +1,71 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ¾Ç²ßÄæ¦ì Field¡A«O¦s¹CÀ¸¤ºªº¸ê®Æ
+    /// å­¸ç¿’æ¬„ä½ Fieldï¼Œä¿å­˜éŠæˆ²å…§çš„è³‡æ–™
     /// </summary>
     public class LearnField : MonoBehaviour
     {
-        #region Äæ¦ì°òÂ¦»yªk
-        // Äæ¦ì»yªk¡G
-        // ¸ê®ÆÃş«¬ Äæ¦ì¦Û­q¦WºÙ¡F
-        // ¸ê®ÆÃş«¬ Äæ¦ì¦Û­q¦WºÙ «ü©w ­È¡F
+        #region æ¬„ä½åŸºç¤èªæ³•
+        // æ¬„ä½èªæ³•ï¼š
+        // è³‡æ–™é¡å‹ æ¬„ä½è‡ªè¨‚åç¨±ï¼›
+        // è³‡æ–™é¡å‹ æ¬„ä½è‡ªè¨‚åç¨± æŒ‡å®š å€¼ï¼›
 
-        // «ü©w²Å¸¹ = ±N¥kÃä«ü¬£µ¹¥ªÃä
+        // æŒ‡å®šç¬¦è™Ÿ = å°‡å³é‚ŠæŒ‡æ´¾çµ¦å·¦é‚Š
 
-        // ¡° ­×¹¢µü ¸ê®ÆÃş«¬ Äæ¦ì¦Û­q¦WºÙ «ü©w ­È¡F
+        // â€» ä¿®é£¾è© è³‡æ–™é¡å‹ æ¬„ä½è‡ªè¨‚åç¨± æŒ‡å®š å€¼ï¼›
         int number;
 
-        // ¨T¨®¸ê®Æ
-        // CC ¼Æ
-        // ­«¶q
-        // «~µP
-        // ¬O§_¦³¤Ñµ¡
+        // æ±½è»Šè³‡æ–™
+        // CC æ•¸
+        // é‡é‡
+        // å“ç‰Œ
+        // æ˜¯å¦æœ‰å¤©çª—
 
-        // ­×¹¢µü¹w³]¬°¨p¤H
-        // ¨p¤H private ¤£Åã¥Ü¤£¤¹³\¥~³¡¦s¨ú
-        // ¤½¶} public Åã¥Ü¤¹³\¥~³¡¦s¨ú
+        // ä¿®é£¾è©é è¨­ç‚ºç§äºº
+        // ç§äºº private ä¸é¡¯ç¤ºä¸å…è¨±å¤–éƒ¨å­˜å–
+        // å…¬é–‹ public é¡¯ç¤ºå…è¨±å¤–éƒ¨å­˜å–
         public int cc = 1500;
         public float weight = 3.5f;
-        public string brand = "¯S´µ©Ô";
+        public string brand = "ç‰¹æ–¯æ‹‰";
         public bool hasSkyWindow = true;
 
-        // Äæ¦ìÄİ©Ê [Äİ©Ê¦WºÙ(­È)]
-        // 1. ´£¥Ü Tooltip(¦r¦ê)
-        // 2. ¼ĞÃD Header(¦r¦ê)
-        // 3. ½d³ò Range(¼Æ­È«¬ºA¡A¼Æ­È«¬ºA) - ¶È­­¼Æ­ÈÃş«¬ float ©Î int
-        // 4. §Ç¦C¤Æ SerializedField ±N¨p¤HÄæ¦ìÅã¥Ü
-        [Tooltip("³o¬Oª±®aªº¼Æ¶q.....")]
+        // æ¬„ä½å±¬æ€§ [å±¬æ€§åç¨±(å€¼)]
+        // 1. æç¤º Tooltip(å­—ä¸²)
+        // 2. æ¨™é¡Œ Header(å­—ä¸²)
+        // 3. ç¯„åœ Range(æ•¸å€¼å‹æ…‹ï¼Œæ•¸å€¼å‹æ…‹) - åƒ…é™æ•¸å€¼é¡å‹ float æˆ– int
+        // 4. åºåˆ—åŒ– SerializedField å°‡ç§äººæ¬„ä½é¡¯ç¤º
+        [Tooltip("é€™æ˜¯ç©å®¶çš„æ•¸é‡.....")]
         public int count;
-        [Header("§ğÀ»¤O")]
+        [Header("æ”»æ“ŠåŠ›")]
         public float attack = 10.5f;
         [Range(50, 1500)]
         public int hp = 100;
-        [Header("ªZ¾¹¦WºÙ")]
-        [Tooltip("³o¬Oª±®aªºªZ¾¹")]
-        public string weapon = "¤p¤M";
-        [Header("¬O§_¦º¤`"), Tooltip("ª±®a¬O§_¦º¤`")]
+        [Header("æ­¦å™¨åç¨±")]
+        [Tooltip("é€™æ˜¯ç©å®¶çš„æ­¦å™¨")]
+        public string weapon = "å°åˆ€";
+        [Header("æ˜¯å¦æ­»äº¡"), Tooltip("ç©å®¶æ˜¯å¦æ­»äº¡")]
         public bool isDead = false;
 
-        // C# OOP ª«¥ó¾É¦Vµ{¦¡³]­p
-        // ¤T¤j¯S©Ê¡GÄ~©Ó¡B«Ê¸Ë¡B¦h«¬
-        // «Ê¸Ë¡G±N¸ÓÃş§Oªº¤º®e«Ê³¬¦bÃş§O¤º¶È´£¨Ñ¥~³¡»İ­nªºµ¡¤f
+        // C# OOP ç‰©ä»¶å°å‘ç¨‹å¼è¨­è¨ˆ
+        // ä¸‰å¤§ç‰¹æ€§ï¼šç¹¼æ‰¿ã€å°è£ã€å¤šå‹
+        // å°è£ï¼šå°‡è©²é¡åˆ¥çš„å…§å®¹å°é–‰åœ¨é¡åˆ¥å…§åƒ…æä¾›å¤–éƒ¨éœ€è¦çš„çª—å£
         
-        public string password = "123456789";   // ¦¹¬°¨S¦³«Ê¸Ëªº¤£¦n¥Ü½d
+        public string password = "123456789";   // æ­¤ç‚ºæ²’æœ‰å°è£çš„ä¸å¥½ç¤ºç¯„
 
         /// <summary>
-        /// §Ç¦C¤ÆÄæ¦ì¡A«Ê¸Ë¦¹¸ê®Æ¦ıÅã¥Ü¦bÄİ©Ê­±ªO
+        /// åºåˆ—åŒ–æ¬„ä½ï¼Œå°è£æ­¤è³‡æ–™ä½†é¡¯ç¤ºåœ¨å±¬æ€§é¢æ¿
         /// </summary>
         [SerializeField]
         private int speed = 10;
         #endregion
 
-        #region Unity ¤º¸ê®ÆÃş«¬
-        // Àx¦sª«¥ó
+        #region Unity å…§è³‡æ–™é¡å‹
+        // å„²å­˜ç‰©ä»¶
         public GameObject goCamera;
 
-        // ÃC¦â»P®y¼Ğ
+        // é¡è‰²èˆ‡åº§æ¨™
         public Color color;
         public Color colorRed = Color.red;
         public Color colorYellow = Color.yellow;
@@ -82,7 +82,7 @@ namespace KID
 
         public Vector4 v4Custom = new Vector4(1, 2, 3, 4);
 
-        // ¦h¿ï»P¦CÁ|
+        // å¤šé¸èˆ‡åˆ—èˆ‰
         public LayerMask layer;
 
         public LightType lightType;
@@ -90,7 +90,7 @@ namespace KID
         public KeyCode keyA;
         public KeyCode keyJump = KeyCode.Space;
 
-        // ¤¸¥ó
+        // å…ƒä»¶
         public Transform tra;
         public SpriteRenderer spr;
         public Animator ani;

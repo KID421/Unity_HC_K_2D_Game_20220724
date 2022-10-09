@@ -1,21 +1,21 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// §ðÀ»¸ê®Æ
+    /// æ”»æ“Šè³‡æ–™
     /// </summary>
     [CreateAssetMenu(menuName = "KID/Data Attack", fileName = "Data Attack")]
     public class DataAttack : ScriptableObject
     {
-        [Header("§ðÀ»¸ê®Æ")]
+        [Header("æ”»æ“Šè³‡æ–™")]
         [Range(0, 1000)]
         public float attack = 30;
         public Color attackAreaColor = new Color(0, 1, 0.2f, 0.7f);
         public Vector3 attackAreaSize = Vector3.one;
         public Vector3 attackAreaOffset;
         public LayerMask attackAreaLayer;
-        public string parAttack = "Ä²µo§ðÀ»";
+        public string parAttack = "è§¸ç™¼æ”»æ“Š";
         [Range(0, 3)]
         public float attackTime = 0.9f;
         [Range(0, 2)]

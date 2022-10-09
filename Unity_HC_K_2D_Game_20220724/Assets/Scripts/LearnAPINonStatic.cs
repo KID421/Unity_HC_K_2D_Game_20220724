@@ -1,16 +1,16 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ¾Ç²ß«DÀRºA API
-    /// »PÀRºAªº®t§O¡G»İ­n¦³¹êÅéª«¥ó
+    /// å­¸ç¿’ééœæ…‹ API
+    /// èˆ‡éœæ…‹çš„å·®åˆ¥ï¼šéœ€è¦æœ‰å¯¦é«”ç‰©ä»¶
     /// </summary>
     public class LearnAPINonStatic : MonoBehaviour
     {
-        // 1. ¸ÓÃş§OªºÄæ¦ì
-        // 2. Äİ©Ê­±ªO¥²¶·¨ú±o¹êÅéª«¥ó
-        // 3. ¨Ï¥Î«DÀRºAÄİ©Ê©Î¤èªk
+        // 1. è©²é¡åˆ¥çš„æ¬„ä½
+        // 2. å±¬æ€§é¢æ¿å¿…é ˆå–å¾—å¯¦é«”ç‰©ä»¶
+        // 3. ä½¿ç”¨ééœæ…‹å±¬æ€§æˆ–æ–¹æ³•
         public GameObject goKnight;
 
         public Camera cam;
@@ -22,22 +22,22 @@ namespace KID
 
         private void Start()
         {
-            // «DÀRºAÄİ©Ê
-            // 1. ¨ú±o Get
-            // »yªk¡GÄæ¦ì¦WºÙ.«DÀRºAÄİ©Ê
-            print($"ÃM¤h¹Ï¼h { goKnight.layer }");
+            // ééœæ…‹å±¬æ€§
+            // 1. å–å¾— Get
+            // èªæ³•ï¼šæ¬„ä½åç¨±.ééœæ…‹å±¬æ€§
+            print($"é¨å£«åœ–å±¤ { goKnight.layer }");
 
-            // 2. ³]©w Set 
-            // »yªk¡GÄæ¦ì¦WºÙ.«DÀRºAÄİ©Ê «ü©w ­È¡F
+            // 2. è¨­å®š Set 
+            // èªæ³•ï¼šæ¬„ä½åç¨±.ééœæ…‹å±¬æ€§ æŒ‡å®š å€¼ï¼›
             goKnight.layer = 4;
 
-            // «DÀRºA¤èªk
-            // 3. ¨Ï¥Î
-            // »yªk¡GÄæ¦ì¦WºÙ.«DÀRºA¤èªk(¹ïÀ³ªº¤Ş¼Æ)
+            // ééœæ…‹æ–¹æ³•
+            // 3. ä½¿ç”¨
+            // èªæ³•ï¼šæ¬„ä½åç¨±.ééœæ…‹æ–¹æ³•(å°æ‡‰çš„å¼•æ•¸)
             goKnight.SetActive(false);
 
             print($"Camera Depth { cam.depth }");
-            print($"²yÅé¥b®| { sphereCollider.radius }");
+            print($"çƒé«”åŠå¾‘ { sphereCollider.radius }");
 
             cam.backgroundColor = Random.ColorHSV();
             traCapsule.localScale = new Vector3(3, 2, 1);

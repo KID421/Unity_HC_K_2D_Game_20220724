@@ -1,26 +1,26 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ¼Ä¤H¸ê®Æ
+    /// æ•µäººè³‡æ–™
     /// </summary>
     [CreateAssetMenu(menuName = "KID/Enemy Data", fileName = "Enemy Data", order = 1)]
     public class DataEnemy : DataAttack
     {
-        [Header("²¾°Ê³t«×"), Range(0, 50)]
+        [Header("ç§»å‹•é€Ÿåº¦"), Range(0, 50)]
         public float speed = 3.5f;
-        [Header("°»´ú«e¤è¬O§_¦³¦aªO¸ê®Æ")]
+        [Header("åµæ¸¬å‰æ–¹æ˜¯å¦æœ‰åœ°æ¿è³‡æ–™")]
         public Color checkGroundColor = new Color(1, 0.5f, 0.3f, 0.3f);
         public Vector3 checkGroundOffset;
         public Vector3 checkGroundSize = Vector3.one;
         public LayerMask checkGroundLayer;
-        [Header("°»´ú«e¤è¬O§_¦³§ğÀ»¥Ø¼Ğ")]
+        [Header("åµæ¸¬å‰æ–¹æ˜¯å¦æœ‰æ”»æ“Šç›®æ¨™")]
         public Color checkTargetColor = new Color(1, 0.1f, 0.1f, 0.3f);
         public Vector3 checkTargetOffset;
         public Vector3 checkTargetSize = Vector3.one;
         public LayerMask checkTargetLayer;
-        [Header("§ğÀ»½d³ò")]
+        [Header("æ”»æ“Šç¯„åœ")]
         public Color attackRangeColor = new Color(0, 1, 0, 0.5f);
         [Range(0, 5)]
         public float attackRange = 2;

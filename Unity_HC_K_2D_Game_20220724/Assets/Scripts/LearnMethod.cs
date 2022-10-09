@@ -1,68 +1,68 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ¾Ç²ß¤èªk¡GÀx¦sµ{¦¡°Ï¶ô (Code Block)¡A
-    /// ¤èªk¡B¨ç¦¡¡B¨ç¼Æ¡B¥\¯à¡BMethod¡BFunction
+    /// å­¸ç¿’æ–¹æ³•ï¼šå„²å­˜ç¨‹å¼å€å¡Š (Code Block)ï¼Œ
+    /// æ–¹æ³•ã€å‡½å¼ã€å‡½æ•¸ã€åŠŸèƒ½ã€Methodã€Function
     /// </summary>
     public class LearnMethod : MonoBehaviour
     {
-        // ¤èªk»yªk¡G
-        // °Ñ¼Æ»yªk¡G¸ê®ÆÃş«¬ °Ñ¼Æ¦WºÙ¡A¸ê®ÆÃş«¬ °Ñ¼Æ¦WºÙ¡A...
-        // ¡° ­×¹¢µü ¶Ç¦^¸ê®ÆÃş«¬ ¤èªk¦Û­q¦WºÙ (°Ñ¼Æ) { µ{¦¡°Ï¶ô }
-        // µL¶Ç¦^Ãş«¬ void
+        // æ–¹æ³•èªæ³•ï¼š
+        // åƒæ•¸èªæ³•ï¼šè³‡æ–™é¡å‹ åƒæ•¸åç¨±ï¼Œè³‡æ–™é¡å‹ åƒæ•¸åç¨±ï¼Œ...
+        // â€» ä¿®é£¾è© å‚³å›è³‡æ–™é¡å‹ æ–¹æ³•è‡ªè¨‚åç¨± (åƒæ•¸) { ç¨‹å¼å€å¡Š }
+        // ç„¡å‚³å›é¡å‹ void
         private void Test()
         {
-            print("´ú¸Õ");
+            print("æ¸¬è©¦");
         }
 
-        // Ctrl + K D ¦Û°Ê®æ¦¡¤Æ (±Æª©)
+        // Ctrl + K D è‡ªå‹•æ ¼å¼åŒ– (æ’ç‰ˆ)
 
         private void Start()
         {
-            // ©I¥s¤èªk
+            // å‘¼å«æ–¹æ³•
             Test();
             Test();
             Test();
 
             int ten = ReturnTen();
 
-            print("µ²ªG¡G" + ten);
+            print("çµæœï¼š" + ten);
 
             AddTen(7);
             Add(100, 300);
             Add(50, 999);
-            // ¤õ²y¡A«¦«¦«¦¡AÃz¬µ
-            Skill("¤õ²y", effect: "Ãz¬µ");
-            Skill("¦B²y");
-            Skill("¹q²y", "´ş´ş´ş");
+            // ç«çƒï¼Œå’»å’»å’»ï¼Œçˆ†ç‚¸
+            Skill("ç«çƒ", effect: "çˆ†ç‚¸");
+            Skill("å†°çƒ");
+            Skill("é›»çƒ", "æ»‹æ»‹æ»‹");
         }
 
         private int ReturnTen()
         {
-            // return ¶Ç¦^
+            // return å‚³å›
             return 10;
         }
 
         private void AddTen(int number)
         {
             number = number + 10;
-            print("¼Æ¦r¥[¤Q«áªºµ²ªG¡G" + number);
+            print("æ•¸å­—åŠ åå¾Œçš„çµæœï¼š" + number);
         }
 
         private void Add(int numberA, int numberB)
         {
-            print("<color=yellow>¼Æ¦r¬Û¥[ªºµ²ªG" + (numberA + numberB) + "</color>");
+            print("<color=yellow>æ•¸å­—ç›¸åŠ çš„çµæœ" + (numberA + numberB) + "</color>");
         }
 
-        // ¬I©ñ§Ş¯à¡G¤õ²y¡B¦B²y¡B¹q²y...
-        // ¦³¹w³]­Èªº°Ñ¼Æ¡G¿ï¾Ü¦¡°Ñ¼Æ - ¥²¶·¼g¦b³Ì¥kÃä¡A©I¥s®É¤£¶ñ·|¥H¹w³]­È±a¤J
-        private void Skill(string skillType, string sound = "«¦«¦«¦", string effect = "¸H¤ù")
+        // æ–½æ”¾æŠ€èƒ½ï¼šç«çƒã€å†°çƒã€é›»çƒ...
+        // æœ‰é è¨­å€¼çš„åƒæ•¸ï¼šé¸æ“‡å¼åƒæ•¸ - å¿…é ˆå¯«åœ¨æœ€å³é‚Šï¼Œå‘¼å«æ™‚ä¸å¡«æœƒä»¥é è¨­å€¼å¸¶å…¥
+        private void Skill(string skillType, string sound = "å’»å’»å’»", string effect = "ç¢ç‰‡")
         {
-            print("¬I©ñ§Ş¯à¯S®Ä¡G" + skillType);
-            print("§Ş¯à­µ®Ä¡G" + sound);
-            print($"§Ş¯àªş±a¯S®Ä¡G {effect}");
+            print("æ–½æ”¾æŠ€èƒ½ç‰¹æ•ˆï¼š" + skillType);
+            print("æŠ€èƒ½éŸ³æ•ˆï¼š" + sound);
+            print($"æŠ€èƒ½é™„å¸¶ç‰¹æ•ˆï¼š {effect}");
         }
     }
 }

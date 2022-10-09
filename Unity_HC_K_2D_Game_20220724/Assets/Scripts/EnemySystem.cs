@@ -1,25 +1,28 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ¼Ä¤H¨t²Î
+    /// æ•µäººç³»çµ±
     /// </summary>
     public class EnemySystem : MonoBehaviour
     {
-        [SerializeField, Header("¼Ä¤H¸ê®Æ")]
+        #region è³‡æ–™
+        [SerializeField, Header("æ•µäººè³‡æ–™")]
         private DataEnemy dataEnemy;
-        [SerializeField, Header("°Êµe±±¨î¾¹§ğÀ»°Êµe¦WºÙ")]
-        private string nameAnimationAttack = "¦º¯«_§ğÀ»";
+        [SerializeField, Header("å‹•ç•«æ§åˆ¶å™¨æ”»æ“Šå‹•ç•«åç¨±")]
+        private string nameAnimationAttack = "æ­»ç¥_æ”»æ“Š";
 
         private Rigidbody2D rig;
         private Animator ani;
         private bool isGroundForward;
-        private string parWalk = "¶}Ãö¨«¸ô";
+        private string parWalk = "é–‹é—œèµ°è·¯";
         private bool lookAttackTarget;
         private Transform traAttackTarget;
         private EnemyAttack enemyAttack;
+        #endregion
 
+        #region äº‹ä»¶
         private void Awake()
         {
             rig = GetComponent<Rigidbody2D>();
@@ -38,7 +41,7 @@ namespace KID
 
         private void OnDrawGizmos()
         {
-            #region ÀË¬d¦aªO
+            #region æª¢æŸ¥åœ°æ¿
             Gizmos.color = dataEnemy.checkGroundColor;
             Gizmos.DrawCube(
                 transform.position +
@@ -46,7 +49,7 @@ namespace KID
                 dataEnemy.checkGroundSize);
             #endregion
 
-            #region ÀË¬d§ğÀ»¥Ø¼Ğ
+            #region æª¢æŸ¥æ”»æ“Šç›®æ¨™
             Gizmos.color = dataEnemy.checkTargetColor;
             Gizmos.DrawCube(
                 transform.position +
@@ -57,13 +60,15 @@ namespace KID
             Gizmos.color = dataEnemy.attackRangeColor;
             Gizmos.DrawLine(transform.position, transform.position + -transform.right * dataEnemy.attackRange);
         }
+        #endregion
 
+        #region æ–¹æ³•
         /// <summary>
-        /// ¹C¨«
+        /// éŠèµ°
         /// </summary>
         private void Wander()
         {
-            // ¦pªG ¥Ø«e°Êµe¦WºÙ ¬° ¦º¯«_§ğÀ» ´N¸õ¥X
+            // å¦‚æœ ç›®å‰å‹•ç•«åç¨± ç‚º æ­»ç¥_æ”»æ“Š å°±è·³å‡º
             if (ani.GetCurrentAnimatorStateInfo(0).IsName(nameAnimationAttack)) return;
 
             if (lookAttackTarget) return;
@@ -72,7 +77,7 @@ namespace KID
         }
 
         /// <summary>
-        /// °»´ú«e¤è¬O§_¦³¦aªO
+        /// åµæ¸¬å‰æ–¹æ˜¯å¦æœ‰åœ°æ¿
         /// </summary>
         private void CheckGroundForward()
         {
@@ -81,13 +86,13 @@ namespace KID
                 transform.TransformDirection(dataEnemy.checkGroundOffset),
                 dataEnemy.checkGroundSize, 0, dataEnemy.checkGroundLayer);
 
-            // print("«e¤è¬O§_¦³¦aªOª«¥ó¡G" + hit.gameObject);
+            // print("å‰æ–¹æ˜¯å¦æœ‰åœ°æ¿ç‰©ä»¶ï¼š" + hit.gameObject);
 
             isGroundForward = hit;
         }
 
         /// <summary>
-        /// °»´ú«e¤è¬O§_¦³§ğÀ»¥Ø¼Ğ
+        /// åµæ¸¬å‰æ–¹æ˜¯å¦æœ‰æ”»æ“Šç›®æ¨™
         /// </summary>
         private void CheckAttackTarget()
         {
@@ -96,23 +101,23 @@ namespace KID
                 transform.TransformDirection(dataEnemy.checkTargetOffset),
                 dataEnemy.checkTargetSize, 0, dataEnemy.checkTargetLayer);
 
-            // print("«e¤è¬O§_¦³§ğÀ»¥Ø¼Ğ¡G" + hit.gameObject);
+            // print("å‰æ–¹æ˜¯å¦æœ‰æ”»æ“Šç›®æ¨™ï¼š" + hit.gameObject);
 
             lookAttackTarget = hit;
-            if (hit) traAttackTarget = hit.transform;   // ¦pªG¦³¸I¨ìª«¥ó´NÀx¦sÅÜ§Î¤¸¥ó
+            if (hit) traAttackTarget = hit.transform;   // å¦‚æœæœ‰ç¢°åˆ°ç‰©ä»¶å°±å„²å­˜è®Šå½¢å…ƒä»¶
         }
 
         /// <summary>
-        /// ¬İ¨£§ğÀ»¥Ø¼Ğ
+        /// çœ‹è¦‹æ”»æ“Šç›®æ¨™
         /// </summary>
         private void LookAttackTarget()
         {
             if (lookAttackTarget)
             {
                 float dis = Vector3.Distance(transform.position, traAttackTarget.position);
-                // print("¶ZÂ÷¡G" + dis);
+                // print("è·é›¢ï¼š" + dis);
 
-                // ¦pªG ¥Ø«e°Êµe¦WºÙ ¬° ¦º¯«_§ğÀ» ´N¸õ¥X
+                // å¦‚æœ ç›®å‰å‹•ç•«åç¨± ç‚º æ­»ç¥_æ”»æ“Š å°±è·³å‡º
                 if (ani.GetCurrentAnimatorStateInfo(0).IsName(nameAnimationAttack)) return;
 
                 if (dis > dataEnemy.attackRange)
@@ -129,7 +134,7 @@ namespace KID
         }
 
         /// <summary>
-        /// §ğÀ»
+        /// æ”»æ“Š
         /// </summary>
         private void Attack()
         {
@@ -138,7 +143,7 @@ namespace KID
         }
 
         /// <summary>
-        /// Â½­±
+        /// ç¿»é¢
         /// </summary>
         private void Flip()
         {
@@ -148,5 +153,6 @@ namespace KID
                 transform.eulerAngles = new Vector3(0, yAngle == 0 ? 180 : 0, 0);
             }
         }
+        #endregion
     }
 }

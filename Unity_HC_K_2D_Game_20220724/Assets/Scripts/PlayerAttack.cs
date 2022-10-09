@@ -1,13 +1,13 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ª±®a§ğÀ»¨t²Î¡G³z¹LÁä½L±±¨î
+    /// ç©å®¶æ”»æ“Šç³»çµ±ï¼šé€ééµç›¤æ§åˆ¶
     /// </summary>
     public class PlayerAttack : AttackSystem
     {
-        [SerializeField, Header("§ğÀ»¿é¤J«öÁä")]
+        [SerializeField, Header("æ”»æ“Šè¼¸å…¥æŒ‰éµ")]
         private KeyCode keyAttack = KeyCode.Mouse0;
 
         private MoveSystem moveSystem;
@@ -27,7 +27,7 @@ namespace KID
         }
 
         /// <summary>
-        /// ÀË¬d¿é¤J§ğÀ»«öÁä
+        /// æª¢æŸ¥è¼¸å…¥æ”»æ“ŠæŒ‰éµ
         /// </summary>
         private void InputCheck()
         {
@@ -37,7 +37,7 @@ namespace KID
             }
         }
 
-        // override ½Æ¼g¤÷Ãş§O¦³ virtual ÃöÁä¦rªº¦¨­û
+        // override è¤‡å¯«çˆ¶é¡åˆ¥æœ‰ virtual é—œéµå­—çš„æˆå“¡
         public override void StartAttack()
         {
             base.StartAttack();

@@ -1,25 +1,25 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ²¾°Ê¨t²Î¡G±±¨îª«¥ó²¾°Ê»P°Êµe
+    /// ç§»å‹•ç³»çµ±ï¼šæ§åˆ¶ç‰©ä»¶ç§»å‹•èˆ‡å‹•ç•«
     /// </summary>
     public class MoveSystem : MonoBehaviour
     {
-        #region ¸ê®Æ
-        [SerializeField, Header("²¾°Ê³t«×"), Range(0, 100)]
+        #region è³‡æ–™
+        [SerializeField, Header("ç§»å‹•é€Ÿåº¦"), Range(0, 100)]
         private float speed = 3.5f;
-        [SerializeField, Header("²¾°Ê°Ñ¼Æ¦WºÙ")]
-        private string parMove = "¶}Ãö¶]¨B";
+        [SerializeField, Header("ç§»å‹•åƒæ•¸åç¨±")]
+        private string parMove = "é–‹é—œè·‘æ­¥";
 
         private Animator ani;
         private Rigidbody2D rig;
         #endregion
 
-        #region ¤èªk
+        #region æ–¹æ³•
         /// <summary>
-        /// ²¾°Ê¤èªk
+        /// ç§»å‹•æ–¹æ³•
         /// </summary>
         private void Move()
         {
@@ -27,14 +27,14 @@ namespace KID
             rig.velocity = new Vector2(h * speed, rig.velocity.y);
             ani.SetBool(parMove, h != 0);
             
-            if (Mathf.Abs(h) < 0.1f) return;                            // ¦pªG ¤ô¥­µ´¹ï­È ¤p©ó 0.1 ´N¸õ¥X
+            if (Mathf.Abs(h) < 0.1f) return;                            // å¦‚æœ æ°´å¹³çµ•å°å€¼ å°æ–¼ 0.1 å°±è·³å‡º
 
             float yAngle = h > 0 ? 0 : 180;
             transform.eulerAngles = new Vector3(0, yAngle, 0);
         }
         #endregion
 
-        #region ¨Æ¥ó
+        #region äº‹ä»¶
         private void Awake()
         {
             ani = GetComponent<Animator>();
@@ -46,7 +46,7 @@ namespace KID
             Move();
         }
 
-        // Ãö³¬¨Æ¥ó¡G¤¸¥ó³QÃö³¬°õ¦æ¤@¦¸
+        // é—œé–‰äº‹ä»¶ï¼šå…ƒä»¶è¢«é—œé–‰åŸ·è¡Œä¸€æ¬¡
         private void OnDisable()
         {
             rig.velocity = Vector3.zero;

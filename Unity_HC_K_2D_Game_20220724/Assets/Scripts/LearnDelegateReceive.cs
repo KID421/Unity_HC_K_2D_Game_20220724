@@ -1,31 +1,31 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ¾Ç²ß©e¬£¡G±µ¦¬¤è
+    /// å­¸ç¿’å§”æ´¾ï¼šæ¥æ”¶æ–¹
     /// </summary>
     public class LearnDelegateReceive : MonoBehaviour
     {
         public void ReceiveData(int getNumberData)
         {
             getNumberData++;
-            print("±µ¦¬¨ìªº¸ê®Æ¥[¤@¡G" + getNumberData);
+            print("æ¥æ”¶åˆ°çš„è³‡æ–™åŠ ä¸€ï¼š" + getNumberData);
         }
 
-        // 2. ©w¸q©e¬£¡GÃ±³¹¥²¶·»P¤èªk¤@¼Ë
-        // ½d¨Ò¡GµL¶Ç¦^µL°Ñ¼Æ
-        // Ã±³¹¡G¶Ç¦^Ãş«¬¡B°Ñ¼Æ¼Æ¶q»PÃş«¬
-        // ©e¬£»yªk¡G­×¹¢µü ©e¬£ÃöÁä¦r ¶Ç¦^Ãş«¬ ©e¬£¦WºÙ(°Ñ¼Æ)¡F
+        // 2. å®šç¾©å§”æ´¾ï¼šç°½ç« å¿…é ˆèˆ‡æ–¹æ³•ä¸€æ¨£
+        // ç¯„ä¾‹ï¼šç„¡å‚³å›ç„¡åƒæ•¸
+        // ç°½ç« ï¼šå‚³å›é¡å‹ã€åƒæ•¸æ•¸é‡èˆ‡é¡å‹
+        // å§”æ´¾èªæ³•ï¼šä¿®é£¾è© å§”æ´¾é—œéµå­— å‚³å›é¡å‹ å§”æ´¾åç¨±(åƒæ•¸)ï¼›
         public delegate void delegateOne();
 
         public delegate void delegateTwo(int number);
 
-        // 3. ¨Ï¥Î©e¬£
-        // 3-1 °Ñ¼Æ©w¸q
+        // 3. ä½¿ç”¨å§”æ´¾
+        // 3-1 åƒæ•¸å®šç¾©
         public void ReceiveMethod(delegateOne one)
         {
-            // 3-3 ¨Ï¥Î©e¬£
+            // 3-3 ä½¿ç”¨å§”æ´¾
             one();
         }
 

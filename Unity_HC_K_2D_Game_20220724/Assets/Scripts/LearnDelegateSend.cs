@@ -1,19 +1,19 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ¾Ç²ß©e¬£¡G¶Ç°e¤è
+    /// å­¸ç¿’å§”æ´¾ï¼šå‚³é€æ–¹
     /// </summary>
     public class LearnDelegateSend : MonoBehaviour
     {
         private int number = 99;
         private LearnDelegateReceive receive;
 
-        #region ©e¬£»¡©ú
-        // 1. »İ­n¶Ç»¼ªº¤èªk
-        // 2. ©w¸q©e¬£
-        // 3. ¨Ï¥Î©e¬£
+        #region å§”æ´¾èªªæ˜
+        // 1. éœ€è¦å‚³éçš„æ–¹æ³•
+        // 2. å®šç¾©å§”æ´¾
+        // 3. ä½¿ç”¨å§”æ´¾
         #endregion
 
         private void Awake()
@@ -21,23 +21,23 @@ namespace KID
             receive = FindObjectOfType<LearnDelegateReceive>();
             receive.ReceiveData(number);
 
-            // 3. ¨Ï¥Î©e¬£
-            // 3-2 °Ñ¼Æ¶Ç»¼
+            // 3. ä½¿ç”¨å§”æ´¾
+            // 3-2 åƒæ•¸å‚³é
             receive.ReceiveMethod(MethodOne);
             receive.ReceiveMethodTwo(WeaponAttack);
         }
 
-        // 1. ©w¸q¤èªk
-        // ½d¨Ò¡GµL¶Ç¦^µL°Ñ¼Æ
+        // 1. å®šç¾©æ–¹æ³•
+        // ç¯„ä¾‹ï¼šç„¡å‚³å›ç„¡åƒæ•¸
         private void MethodOne()
         {
-            print("§Ú¬O¤èªk¤@");
+            print("æˆ‘æ˜¯æ–¹æ³•ä¸€");
         }
 
         private void WeaponAttack(int attack)
         {
             attack *= 100;
-            print("ªZ¾¹¯u¹ê¶Ë®`¡G" + attack);
+            print("æ­¦å™¨çœŸå¯¦å‚·å®³ï¼š" + attack);
         }
     }
 }

@@ -1,9 +1,9 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// °j°é¡Gfor
+    /// è¿´åœˆï¼šfor
     /// </summary>
     public class LearnLoop : MonoBehaviour
     {
@@ -11,7 +11,7 @@ namespace KID
         {
             for (int x = 0; x < 100; x++)
             {
-                print("°j°é°õ¦æ¦¸¼Æ¡G" + x);
+                print("è¿´åœˆåŸ·è¡Œæ¬¡æ•¸ï¼š" + x);
             }
         }
     }

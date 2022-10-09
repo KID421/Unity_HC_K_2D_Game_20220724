@@ -1,9 +1,9 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ¾Ç²ß API ÀRºAªº¥Îªk
+    /// å­¸ç¿’ API éœæ…‹çš„ç”¨æ³•
     /// </summary>
     public class LearnAPIStatic : MonoBehaviour
     {
@@ -12,51 +12,51 @@ namespace KID
 
         private void Start()
         {
-            #region »{ÃÑÀRºAÄİ©Ê
-            // ÀRºAÄİ©Ê
-            // 1. ¨ú±o Get
-            // »yªk¡GÃş§O¦WºÙ.ÀRºAÄİ©Ê
+            #region èªè­˜éœæ…‹å±¬æ€§
+            // éœæ…‹å±¬æ€§
+            // 1. å–å¾— Get
+            // èªæ³•ï¼šé¡åˆ¥åç¨±.éœæ…‹å±¬æ€§
             print($"<color=red>{Random.value}</color>");
 
-            // 2. ³]©w Set (Read Only ¤£¯à³]©w)
-            // »yªk¡GÃş§O¦WºÙ.ÀRºAÄİ©Ê «ü©w ­È¡F
-            // Random.value = 0.3f; °ßÅªÄİ©Ê¤£¯à³]©w
+            // 2. è¨­å®š Set (Read Only ä¸èƒ½è¨­å®š)
+            // èªæ³•ï¼šé¡åˆ¥åç¨±.éœæ…‹å±¬æ€§ æŒ‡å®š å€¼ï¼›
+            // Random.value = 0.3f; å”¯è®€å±¬æ€§ä¸èƒ½è¨­å®š
             Cursor.visible = false;
             #endregion
 
-            // ½m²ß ¨ú±oÀRºAÄİ©Ê 1 ~ 2
-            print($"Äá¼v¾÷¼Æ¶q { Camera.allCamerasCount }");
-            print($"¥­¥x { Application.platform }");
+            // ç·´ç¿’ å–å¾—éœæ…‹å±¬æ€§ 1 ~ 2
+            print($"æ”å½±æ©Ÿæ•¸é‡ { Camera.allCamerasCount }");
+            print($"å¹³å° { Application.platform }");
 
-            // ½m²ß ³]©wÀRºAÄİ©Ê 1 ~ 2
+            // ç·´ç¿’ è¨­å®šéœæ…‹å±¬æ€§ 1 ~ 2
             Physics.sleepThreshold = 10;
             Time.timeScale = 0.5f;
 
-            // ½m²ß ©I¥sÀRºA¤èªk 1¡A2¡A4
+            // ç·´ç¿’ å‘¼å«éœæ…‹æ–¹æ³• 1ï¼Œ2ï¼Œ4
             print(Mathf.Round(2.5f));
             print(Mathf.Floor(2.5f));
             print(Mathf.Ceil(2.5f));
 
-            print($"A B ÂI¶ZÂ÷ { Vector3.Distance(v3A, v3B) }");
+            print($"A B é»è·é›¢ { Vector3.Distance(v3A, v3B) }");
 
             Application.OpenURL("https://unity.com/");
         }
 
         private void Update()
         {
-            #region »{ÃÑÀRºA¤èªk
-            // ÀRºA¤èªk
-            // 3. ¨Ï¥Î¤èªk
-            // »yªk¡GÃş§O¦WºÙ.ÀRºA¤èªk(¹ïÀ³¤Ş¼Æ)
+            #region èªè­˜éœæ…‹æ–¹æ³•
+            // éœæ…‹æ–¹æ³•
+            // 3. ä½¿ç”¨æ–¹æ³•
+            // èªæ³•ï¼šé¡åˆ¥åç¨±.éœæ…‹æ–¹æ³•(å°æ‡‰å¼•æ•¸)
             // print(Random.Range(0, 3));
             #endregion
 
-            // ½m²ß ¨ú±oÀRºAÄİ©Ê 3 ~ 4
-            // print($"¬O§_«ö¤U¥ô·NÁä { Input.anyKeyDown }");
-            // print($"¹CÀ¸¸g¹L®É¶¡ {Time.time }");
+            // ç·´ç¿’ å–å¾—éœæ…‹å±¬æ€§ 3 ~ 4
+            // print($"æ˜¯å¦æŒ‰ä¸‹ä»»æ„éµ { Input.anyKeyDown }");
+            // print($"éŠæˆ²ç¶“éæ™‚é–“ {Time.time }");
             
-            // ½m²ß ©I¥sÀRºA¤èªk 3
-            print($"¬O§_«ö¤UªÅ¥ÕÁä {Input.GetKeyDown(KeyCode.Space) }");
+            // ç·´ç¿’ å‘¼å«éœæ…‹æ–¹æ³• 3
+            print($"æ˜¯å¦æŒ‰ä¸‹ç©ºç™½éµ {Input.GetKeyDown(KeyCode.Space) }");
         }
     }
 }

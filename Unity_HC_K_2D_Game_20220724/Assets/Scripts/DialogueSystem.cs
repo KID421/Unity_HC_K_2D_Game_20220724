@@ -1,36 +1,36 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using TMPro;
 using System.Collections;
 
 namespace KID
 {
     /// <summary>
-    /// ¹ï¸Ü¨t²Î
+    /// å°è©±ç³»çµ±
     /// </summary>
     public class DialogueSystem : MonoBehaviour
     {
-        #region ¸ê®Æ
-        [SerializeField, Header("¹ï¸Ü®Ø¤T¨¤§Î")]
+        #region è³‡æ–™
+        [SerializeField, Header("å°è©±æ¡†ä¸‰è§’å½¢")]
         private GameObject goTriangle;
-        [SerializeField, Header("¹ï¸Ü¥´¦r®ÄªG¶¡¹j"), Range(0, 0.5f)]
+        [SerializeField, Header("å°è©±æ‰“å­—æ•ˆæœé–“éš”"), Range(0, 0.5f)]
         private float intervalTypeEffect = 0.05f;
-        [SerializeField, Header("¹ï¸Ü«öÁä")]
+        [SerializeField, Header("å°è©±æŒ‰éµ")]
         private KeyCode keyDialogue = KeyCode.E;
 
         /// <summary>
-        /// µe¥¬¹ï¸Ü
+        /// ç•«å¸ƒå°è©±
         /// </summary>
         private CanvasGroup groupDialogue;
         /// <summary>
-        /// NPC ¦WºÙ
+        /// NPC åç¨±
         /// </summary>
         private TextMeshProUGUI textNPC;
         /// <summary>
-        /// ¹ï¸Ü¤º®e
+        /// å°è©±å…§å®¹
         /// </summary>
         private TextMeshProUGUI textContent;
         /// <summary>
-        /// ·í«e NPC ¸ê®Æ
+        /// ç•¶å‰ NPC è³‡æ–™
         /// </summary>
         private DataNPC dataNPC;
 
@@ -38,39 +38,39 @@ namespace KID
         private delegateDialogueFinish dialogueFinish;
         #endregion
 
-        #region ¨Æ¥ó
+        #region äº‹ä»¶
         private void Awake()
         {
-            groupDialogue = GameObject.Find("µe¥¬¹ï¸Ü").GetComponent<CanvasGroup>();
-            textNPC = GameObject.Find("NPC ¦WºÙ").GetComponent<TextMeshProUGUI>();
-            textContent = GameObject.Find("¹ï¸Ü¤º®e").GetComponent<TextMeshProUGUI>();
+            groupDialogue = GameObject.Find("ç•«å¸ƒå°è©±").GetComponent<CanvasGroup>();
+            textNPC = GameObject.Find("NPC åç¨±").GetComponent<TextMeshProUGUI>();
+            textContent = GameObject.Find("å°è©±å…§å®¹").GetComponent<TextMeshProUGUI>();
         }
         #endregion
 
-        #region ¤½¶}¤èªk
+        #region å…¬é–‹æ–¹æ³•
         /// <summary>
-        /// ¶}©l¹ï¸Ü
+        /// é–‹å§‹å°è©±
         /// </summary>
-        /// <param name="_dataNPC">NPC ¸ê®Æ</param>
+        /// <param name="_dataNPC">NPC è³‡æ–™</param>
         public IEnumerator StartDialogue(DataNPC _dataNPC, delegateDialogueFinish _finish)
         {
             dialogueFinish = _finish;
 
-            dataNPC = _dataNPC;                             // ±N NPC ¶Ç¹L¨Óªº¸ê®ÆÀx¦s
-            textNPC.text = dataNPC.nameNPC;                 // §ó·s NPC ¦WºÙ
-            textContent.text = "";                          // ²MªÅ NPC ¹ï¸Ü¤º®e
+            dataNPC = _dataNPC;                             // å°‡ NPC å‚³éä¾†çš„è³‡æ–™å„²å­˜
+            textNPC.text = dataNPC.nameNPC;                 // æ›´æ–° NPC åç¨±
+            textContent.text = "";                          // æ¸…ç©º NPC å°è©±å…§å®¹
 
-            yield return StartCoroutine(FadeGroup());       // µ¥«İ ¸Ó¨ó¦Pµ{§Ç
+            yield return StartCoroutine(FadeGroup());       // ç­‰å¾… è©²å”åŒç¨‹åº
 
             StartCoroutine(TypeEffect());
         }
         #endregion
 
-        #region ¨p¤H¤èªk
+        #region ç§äººæ–¹æ³•
         /// <summary>
-        /// ²H¤J²H¥X¸s²Õ
+        /// æ·¡å…¥æ·¡å‡ºç¾¤çµ„
         /// </summary>
-        /// <param name="fadeIn">¬O§_²H¤J</param>
+        /// <param name="fadeIn">æ˜¯å¦æ·¡å…¥</param>
         private IEnumerator FadeGroup(bool fadeIn = true)
         {
             groupDialogue.alpha = fadeIn ? 0 : 1;
@@ -85,27 +85,27 @@ namespace KID
         }
 
         /// <summary>
-        /// ¥´¦r®ÄªG
+        /// æ‰“å­—æ•ˆæœ
         /// </summary>
         private IEnumerator TypeEffect()
         {
-            for (int j = 0; j < dataNPC.content.Length; j++)                        // ¹M¨µ ¨C¤@¬q¹ï¸Ü
+            for (int j = 0; j < dataNPC.content.Length; j++)                        // éå·¡ æ¯ä¸€æ®µå°è©±
             {
-                string content = dataNPC.content[j];                                // ¨ú±o ¨C¤@µ§ ¹ï¸Ü¸ê®Æ
-                goTriangle.SetActive(false);                                        // ÁôÂÃ ¤T¨¤§Î
-                textContent.text = "";                                              // ²MªÅ¹ï¸Ü¤º®e
+                string content = dataNPC.content[j];                                // å–å¾— æ¯ä¸€ç­† å°è©±è³‡æ–™
+                goTriangle.SetActive(false);                                        // éš±è— ä¸‰è§’å½¢
+                textContent.text = "";                                              // æ¸…ç©ºå°è©±å…§å®¹
 
-                for (int i = 0; i < content.Length; i++)                            // °j°é¹M¨µ¹ï¸Ü¨C¤@­Ó¦r
+                for (int i = 0; i < content.Length; i++)                            // è¿´åœˆéå·¡å°è©±æ¯ä¸€å€‹å­—
                 {
-                    textContent.text += content[i];                                 // ¹ï¸Ü¤º®e ²Ö¥[ ¹ï¸Ü¨C¤@­Ó¦r
-                    yield return new WaitForSeconds(intervalTypeEffect);            // µ¥«İ
+                    textContent.text += content[i];                                 // å°è©±å…§å®¹ ç´¯åŠ  å°è©±æ¯ä¸€å€‹å­—
+                    yield return new WaitForSeconds(intervalTypeEffect);            // ç­‰å¾…
                 }
 
-                goTriangle.SetActive(true);                                         // Åã¥Ü ¤T¨¤§Î
+                goTriangle.SetActive(true);                                         // é¡¯ç¤º ä¸‰è§’å½¢
 
-                while (!Input.GetKeyDown(keyDialogue))                              // ¦pªG ¨S¦³«ö¤U¹ï¸Ü«öÁä ´N«ùÄòµ¥«İ
+                while (!Input.GetKeyDown(keyDialogue))                              // å¦‚æœ æ²’æœ‰æŒ‰ä¸‹å°è©±æŒ‰éµ å°±æŒçºŒç­‰å¾…
                 {
-                    yield return null;                                              // null µ¥«İ ¤@­Ó¼v®æªº®É¶¡¡G°»´ú¿é¤J
+                    yield return null;                                              // null ç­‰å¾… ä¸€å€‹å½±æ ¼çš„æ™‚é–“ï¼šåµæ¸¬è¼¸å…¥
                 }
             }
 
