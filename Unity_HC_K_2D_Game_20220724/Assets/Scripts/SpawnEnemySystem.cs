@@ -1,15 +1,15 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ¥Í¦¨¼Ä¤H¨t²Î
+    /// ç”Ÿæˆæ•µäººç³»çµ±
     /// </summary>
-    /// ¹w³]°õ¦æ¶¶§Ç¡G¼Æ¦r¶V¤j¶VºC°õ¦æ
+    /// é è¨­åŸ·è¡Œé †åºï¼šæ•¸å­—è¶Šå¤§è¶Šæ…¢åŸ·è¡Œ
     [DefaultExecutionOrder(200)]
     public class SpawnEnemySystem : MonoBehaviour
     {
-        [SerializeField, Header("¥Í¦¨®É¶¡½d³ò")]
+        [SerializeField, Header("ç”Ÿæˆæ™‚é–“ç¯„åœ")]
         private Vector2 rangeSpawn = new Vector2(0.5f, 1.5f);
 
         private void Start()
@@ -18,7 +18,7 @@ namespace KID
         }
 
         /// <summary>
-        /// ¥Í¦¨¼Ä¤H
+        /// ç”Ÿæˆæ•µäºº
         /// </summary>
         private void SpawnEnemy()
         {

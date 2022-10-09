@@ -1,9 +1,9 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace KID
 {
     /// <summary>
-    /// ¼Ä¤Hª«¥ó¦À
+    /// æ•µäººç‰©ä»¶æ± 
     /// </summary>
     public class ObjectPoolEnemy : ObjectPoolBase
     {
