@@ -11,7 +11,7 @@ namespace KID
         {
             base.Dead();
 
-            gameObject.layer = 0;
+            gameObject.layer = 8;
         }
     }
 }

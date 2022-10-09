@@ -15,4 +15,4 @@ MonoBehaviour:
   hp: 800
   parDead: "\u958B\u95DC\u6B7B\u4EA1"
   dropProbability: 0.7
-  prefabProp: {fileID: 0}
+  prefabProp: {fileID: 598888850046329014, guid: 70e515c7d39aa8a48bd1979704b2d5ed, type: 3}

@@ -59,6 +59,11 @@ namespace KID
         /// </summary>
         [SerializeField]
         private int speed = 10;
+
+        private void Awake()
+        {
+            print(speed);
+        }
         #endregion
 
         #region Unity 內資料類型

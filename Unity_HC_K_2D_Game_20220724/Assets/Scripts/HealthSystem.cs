@@ -8,7 +8,7 @@ namespace KID
     public class HealthSystem : MonoBehaviour
     {
         [SerializeField, Header("血量資料")]
-        private DataHealth dataHealth;
+        protected DataHealth dataHealth;
         [SerializeField, Header("要關閉的元件")]
         private Behaviour[] behavioursToClose;
 
@@ -34,7 +34,7 @@ namespace KID
             hp -= getDamage;
             if (hp <= 0) Dead();
 
-            print(gameObject + " 血量：" + hp);
+            // print(gameObject + " 血量：" + hp);
         }
 
         /// <summary>
