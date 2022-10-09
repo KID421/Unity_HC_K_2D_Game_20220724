@@ -43,9 +43,9 @@ namespace KID
                 transform.TransformDirection(dataAttack.attackAreaOffset),
                 dataAttack.attackAreaSize, 0, dataAttack.attackAreaLayer);
 
-            print("攻擊到的物件：" + hit);
+            // print("攻擊到的物件：" + hit);
 
-            hit.GetComponent<HealthSystem>().Hurt(dataAttack.attack);
+            if (hit) hit.GetComponent<HealthSystem>().Hurt(dataAttack.attack);
         }
 
         // virtual 虛擬：允許子類別使用複寫關鍵字複寫 overrride

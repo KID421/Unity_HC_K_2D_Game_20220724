@@ -9,6 +9,8 @@ namespace KID
     {
         [SerializeField, Header("血量資料")]
         private DataHealth dataHealth;
+        [SerializeField, Header("要關閉的元件")]
+        private Behaviour[] behavioursToClose;
 
         private float hp;
         private float hpMax;
@@ -38,10 +40,15 @@ namespace KID
         /// <summary>
         /// 死亡
         /// </summary>
-        private void Dead()
+        protected virtual void Dead()
         {
             hp = 0;
             ani.SetBool(dataHealth.parDead, true);
+
+            for (int i = 0; i < behavioursToClose.Length; i++)
+            {
+                behavioursToClose[i].enabled = false;
+            }
         }
     }
 }

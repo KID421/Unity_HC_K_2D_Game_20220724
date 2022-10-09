@@ -7,6 +7,11 @@ namespace KID
     /// </summary>
     public class PlayerHealth : HealthSystem
     {
+        protected override void Dead()
+        {
+            base.Dead();
 
+            gameObject.layer = 0;
+        }
     }
 }

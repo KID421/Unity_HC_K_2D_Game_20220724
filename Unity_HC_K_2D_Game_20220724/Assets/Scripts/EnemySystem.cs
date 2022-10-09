@@ -60,6 +60,11 @@ namespace KID
             Gizmos.color = dataEnemy.attackRangeColor;
             Gizmos.DrawLine(transform.position, transform.position + -transform.right * dataEnemy.attackRange);
         }
+
+        private void OnDisable()
+        {
+            rig.velocity = Vector3.zero;
+        }
         #endregion
 
         #region 方法

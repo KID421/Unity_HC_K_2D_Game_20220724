@@ -7,6 +7,16 @@ namespace KID
     /// </summary>
     public class EnemyHealth : HealthSystem
     {
+        protected override void Dead()
+        {
+            base.Dead();
 
+            DropProp();
+        }
+
+        private void DropProp()
+        {
+
+        }
     }
 }
