@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dffaa89f90e53c409c852ed2f32a6c3, type: 3}
   m_Name: "Attack \u9A0E\u58EB"
   m_EditorClassIdentifier: 
-  attack: 1000
+  attack: 100
   attackAreaColor: {r: 0, g: 1, b: 0.2, a: 0.7}
   attackAreaSize: {x: 2, y: 2, z: 1}
   attackAreaOffset: {x: 1.5, y: -1, z: 0}

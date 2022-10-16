@@ -19,6 +19,7 @@ namespace KID
         #region 要停止的元件
         private MoveSystem moveSystem;
         private JumpSystem jumpSystem;
+        private PlayerAttack playerAttack;
         #endregion
 
         #region 私人資料
@@ -48,6 +49,7 @@ namespace KID
 
             moveSystem = FindObjectOfType<MoveSystem>();
             jumpSystem = FindObjectOfType<JumpSystem>();
+            playerAttack = FindObjectOfType<PlayerAttack>();
             dialogueSystem = FindObjectOfType<DialogueSystem>();
         }
 
@@ -115,6 +117,7 @@ namespace KID
 
                 moveSystem.enabled = false;
                 jumpSystem.enabled = false;
+                playerAttack.enabled = false;
                 cvcCM.Priority = 11;
 
                 StopAllCoroutines();
@@ -133,6 +136,7 @@ namespace KID
 
             moveSystem.enabled = true;
             jumpSystem.enabled = true;
+            playerAttack.enabled = true;
             cvcCM.Priority = 9;
             StartCoroutine(FadeGroup(true));
         }

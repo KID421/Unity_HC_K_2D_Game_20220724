@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372c778c83291e740ac8652079c2eae7, type: 3}
   m_Name: "Health \u6B7B\u795E"
   m_EditorClassIdentifier: 
-  hp: 200
+  hp: 100
   parDead: "\u958B\u95DC\u6B7B\u4EA1"
   dropProbability: 0.7
   prefabProp: {fileID: 598888850046329014, guid: 70e515c7d39aa8a48bd1979704b2d5ed, type: 3}

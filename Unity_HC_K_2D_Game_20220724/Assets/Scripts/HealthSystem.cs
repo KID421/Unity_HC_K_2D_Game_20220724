@@ -12,12 +12,12 @@ namespace KID
         [SerializeField, Header("要關閉的元件")]
         private Behaviour[] behavioursToClose;
 
-        private float hp;
-        private float hpMax;
+        protected float hp;
+        protected float hpMax;
 
         private Animator ani;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             ani = GetComponent<Animator>();
 
@@ -29,7 +29,7 @@ namespace KID
         /// 受傷
         /// </summary>
         /// <param name="getDamage">接收到的傷害</param>
-        public void Hurt(float getDamage)
+        public virtual void Hurt(float getDamage)
         {
             hp -= getDamage;
             if (hp <= 0) Dead();
