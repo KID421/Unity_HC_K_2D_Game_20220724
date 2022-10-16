@@ -15,6 +15,7 @@ namespace KID
             if (collision.gameObject.name.Contains(nameTarget))
             {
                 ObjectPoolEnemyProp.instance.ReleasePoolObject(gameObject);
+                MissionManager.instance.UpdateCountAndUI(1);
             }
         }
     }

@@ -10,6 +10,13 @@ namespace KID
         public delegate void delegateDead();
         public delegateDead onDead;
 
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+
+            gameObject.layer = 7;
+        }
+
         protected override void Dead()
         {
             base.Dead();
@@ -32,7 +39,7 @@ namespace KID
 
             if (probability <= dataEnemy.dropProbability)
             {
-                Vector3 pos = transform.position + Vector3.up * 1.5f;
+                Vector3 pos = transform.position + Vector3.up * 0.5f;
 
                 // Instantiate(dataEnemy.prefabProp, pos, Quaternion.identity);
 

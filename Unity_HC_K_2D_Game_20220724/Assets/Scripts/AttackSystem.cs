@@ -30,6 +30,11 @@ namespace KID
                 transform.TransformDirection(dataAttack.attackAreaOffset),
                 dataAttack.attackAreaSize);
         }
+
+        private void OnEnable()
+        {
+            isAttacking = false;
+        }
         #endregion
 
         #region 方法

@@ -13,7 +13,7 @@ namespace KID
         [SerializeField, Header("開始對話按鍵")]
         private KeyCode keyStartDialogue = KeyCode.E;
         [SerializeField, Header("NPC 資料")]
-        private DataNPC dataNPC;
+        public DataNPC dataNPC;
         #endregion
 
         #region 要停止的元件

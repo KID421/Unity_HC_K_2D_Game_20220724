@@ -12,6 +12,8 @@ namespace KID
         [SerializeField, Header("生成時間範圍")]
         private Vector2 rangeSpawn = new Vector2(0.5f, 1.5f);
 
+        private GameObject tempEnemy;
+
         private void Start()
         {
             SpawnEnemy();
@@ -22,8 +24,20 @@ namespace KID
         /// </summary>
         private void SpawnEnemy()
         {
-            GameObject tempEnemy = ObjectPoolEnemy.instance.GetPoolObject();
+            tempEnemy = ObjectPoolEnemy.instance.GetPoolObject();
             tempEnemy.transform.position = transform.position;
+            tempEnemy.GetComponent<EnemyHealth>().onDead = EnemyRelease;
+        }
+
+        /// <summary>
+        /// 回收敵人物件
+        /// </summary>
+        private void EnemyRelease()
+        {
+            ObjectPoolEnemy.instance.ReleasePoolObject(tempEnemy);
+
+            // 延遲呼叫("生成敵人"，隨機秒數)；
+            Invoke("SpawnEnemy", Random.Range(rangeSpawn.x, rangeSpawn.y));
         }
     }
 }

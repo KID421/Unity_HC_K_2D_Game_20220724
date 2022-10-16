@@ -50,5 +50,15 @@ namespace KID
                 behavioursToClose[i].enabled = false;
             }
         }
+
+        protected virtual void OnEnable()
+        {
+            hp = dataHealth.hp;
+
+            for (int i = 0; i < behavioursToClose.Length; i++)
+            {
+                behavioursToClose[i].enabled = true;
+            }
+        }
     }
 }
