@@ -11,6 +11,8 @@ namespace KID
         #region 資料
         [SerializeField, Header("攻擊資料")]
         private DataAttack dataAttack;
+        [SerializeField, Header("攻擊音效")]
+        private AudioClip soundAttack;
 
         private Animator ani;
         private bool isAttacking;
@@ -63,6 +65,8 @@ namespace KID
             isAttacking = true;
             ani.SetTrigger(dataAttack.parAttack);
             StartCoroutine(Attacking());
+
+            SoundManager.instance.PlaySound(soundAttack, new Vector2(1.8f, 2f));
         }
 
         /// <summary>
